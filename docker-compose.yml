@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - REACT_APP_GEMINI_API_KEY=${REACT_APP_GEMINI_API_KEY}
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    environment:
+      - NODE_ENV=production
